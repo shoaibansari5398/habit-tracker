@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes,Link } from "react-router-dom";
+import Home from "./Home";
+import Archives from "./Archives";
+import Habits from "./Habits";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<header className="mt-5 mx-auto">
+				<h1>Habit Tracker</h1>
+				<div className="flex">
+					<h3>Home |</h3>
+					<h3>| Habits |</h3>
+					<h3>| Archives</h3>
+				</div>
+			</header>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/habits" element={<Habits />} />
+					<Route path="/archives" element={<Archives />} />
+				</Routes>
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;
